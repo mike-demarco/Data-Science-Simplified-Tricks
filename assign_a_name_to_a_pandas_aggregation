@@ -1,0 +1,15 @@
+# Assign Name to a Pandas Aggregation
+
+# By default, aggregating a column returns the name of that column.
+# If you want to assign a new name to the aggregation, use name = (column, agg_method).
+
+import pandas as pd
+
+df = pd.DataFrame({"size": ["S", "S", "M", "L"],
+                   "price": [2, 3, 4, 5]})
+
+df.groupby('size').agg({'price': 'mean'})
+
+df.groupby('size').agg(
+    mean_price=('price', 'mean')
+)
